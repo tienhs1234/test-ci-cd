@@ -1,10 +1,9 @@
-# .circleci/config.yml file
 version: 2.1
 
 jobs:
-  build:            # job name
-    docker:         # executor type
-      - image: cimg/base:current # Docker image that installs Docker and has Git,
+  build:
+    docker:
+      - image: cimg/base:current
     working_directory: ~/app
     steps:
       - checkout
@@ -12,7 +11,7 @@ jobs:
           version: 20.10.14
       - run:
           name: Install dependencies
-          command: echo "No need to install anything. \n Just build and push the Docker image."
+          command: echo "No need to install anything. Just build and push the Docker image."
       - run:
           name: Build and push Docker image
           command: |
@@ -22,3 +21,9 @@ jobs:
             docker tag sudkul/sample-express-app sudkul/sample-express-app:1.0.0
             echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
             docker push sudkul/sample-express-app:1.0.0
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
