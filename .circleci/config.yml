@@ -29,9 +29,3 @@ jobs:
             docker tag sudkul/sample-express-app sudkul/sample-express-app:1.0.0
             echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
             docker push sudkul/sample-express-app:1.0.0
-
-workflows:
-  version: 2
-  build:
-    jobs:
-      - build
