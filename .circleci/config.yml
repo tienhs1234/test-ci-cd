@@ -1,16 +1,13 @@
 version: 2.1
 
 jobs:
-  install-node-example:
+  build:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:19.9.1
+    working_directory: ~/app
+    enviroment:
+      MY_VAR: "sample-value"
     steps:
-      - checkout
-      - node/install:
-          install-yarn: true
-          node-version: '16.13'
+      - run: echo $MY_VAR
       - run: node --version
-workflows:
-  test_my_app:
-    jobs:
-      - install-node-example
+      - run: npm install
