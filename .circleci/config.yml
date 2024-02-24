@@ -11,7 +11,7 @@ jobs:
           name: Install Docker Credential Helper
           command: |
             sudo apt-get update && sudo apt-get install -y gnupg2 pass
-            curl -fsSL https://github.com/docker/docker-credential-helpers/releases/download/v0.6.3/docker-credential-secretservice-v0.6.3-amd64.tar.gz | tar xv -C /tmp
+            curl -fsSL https://github.com/docker/docker-credential-helpers/releases/download/v0.6.3/docker-credential-secretservice-v0.6.3-amd64.tar.gz | -z xv -C /tmp
             sudo mv /tmp/docker-credential-secretservice /usr/local/bin/docker-credential-secretservice
             sudo chmod +x /usr/local/bin/docker-credential-secretservice
             mkdir -p ~/.docker && echo '{"credsStore": "secretservice"}' > ~/.docker/config.json
