@@ -8,6 +8,6 @@ jobs:
     enviroment:
       MY_VAR: "sample-value"
     steps:
-      -run: echo $MY_VAR
-      -run: node --version
-      -run: npm install
+      - run: echo $MY_VAR
+      - run: node --version
+      - run: npm install
