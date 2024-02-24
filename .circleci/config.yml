@@ -25,7 +25,7 @@ jobs:
           command: |
             echo "Inside the Build and push Docker image step"
             docker --version # print the version for logging
-            docker build -t sudkul/sample-express-app .        
-            docker tag sudkul/sample-express-app sudkul/sample-express-app:1.0.0
+            docker build -t tienhs1234/sample-express-app .        
+            docker tag tienhs1234/sample-express-app tienhs1234/sample-express-app:1.0.0
             echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-            docker push sudkul/sample-express-app:1.0.0
+            docker push tienhs1234/sample-express-app:1.0.0
