@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: cimg/node:19.9.1
     working_directory: ~/app
-    enviroment:
+    environment:
       MY_VAR: "sample-value"
     steps:
       - run: echo $MY_VAR
